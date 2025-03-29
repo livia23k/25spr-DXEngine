@@ -1,0 +1,42 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 15,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-msvc",
+      "displayName": "Windows (MSVC) with vcpkg (Release)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/Program Files/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_BUILD_TYPE": "Release"
+      }
+    },
+    {
+      "name": "windows-msvc-debug",
+      "displayName": "Windows (MSVC) with vcpkg (Debug)",
+      "generator": "Visual Studio 17 2022",
+      "binaryDir": "${sourceDir}/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "C:/Program Files/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-msvc-build",
+      "configurePreset": "windows-msvc",
+      "configuration": "Release"
+    },
+    {
+      "name": "windows-msvc-debug-build",
+      "configurePreset": "windows-msvc-debug",
+      "configuration": "Debug"
+    }
+  ]
+}
